@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
     validName();
     salaryRange();
 });
+
 function validName() {
     const name = document.querySelector("#name");
     const textError = document.querySelector(".text-error");
@@ -28,14 +29,14 @@ function salaryRange() {
 /** On form submit populate employee payroll data object */
 const save = () => {
     let employeePayrollData = createEmployeePayroll();
-    alert(employeePayrollData.toString());
+    createAndUpdateLocalStorage(employeePayrollData);
 }
 
 const createEmployeePayroll = () => {
     let employeePayrollData = new EmployeePayrollData();
     try {
         employeePayrollData.name = getInputValueById('#name');
-        setTextValue('.text-error', e);
+        setTextValue('.text-error', "");
     } catch (e) {
         setTextValue('.text-error', e);
     }
@@ -43,9 +44,9 @@ const createEmployeePayroll = () => {
     try {
         let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year');
         employeePayrollData.startDate = new Date(Date.parse(date));
-        setTextValue('.date-error', e)
+        setTextValue('.date-error', "");
     } catch (e) {
-        setTextValue('.date-error', e)
+        setTextValue('.date-error', e);
     }
 
     employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
@@ -54,6 +55,7 @@ const createEmployeePayroll = () => {
     employeePayrollData.salary = getInputValueById('#salary');
     employeePayrollData.note = getInputValueById('#notes');
     employeePayrollData.id = new Date().getTime() + 1;
+    alert(employeePayrollData.toString());
     return employeePayrollData;
 }
 
@@ -76,3 +78,17 @@ const getSelectedValues = (propertyValue) => {
     });
     return setItems;
 }
+
+/** save employee object into local storage */
+const createAndUpdateLocalStorage = (empData) => {
+    let dataList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if (dataList != undefined) {
+        dataList.push(empData)
+    }
+    else {
+        dataList = [empData];
+    }
+    localStorage.setItem('EmployeePayrollList', JSON.stringify(dataList));
+    alert("data stored with name " + empData.name);
+}
+
