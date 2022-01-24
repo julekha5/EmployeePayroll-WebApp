@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/payroll-form.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
     <script type="text/JavaScript" src="../js/payroll_form.js"></script>
+    <script type="text/JavaScript" src="../js/EmployeePayrollData.js"></script>
 </head>
 
 <body>
@@ -31,10 +32,11 @@
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
             <!-- UC3 Specify profile pic in the form -->
             <div class="row-content">
-                <label class="lael text" for="profile">Profile Image</label>
+                <label class="label text" for="profile">Profile Image</label>
                 <div class="profile-radio-content">
                     <label>
                         <input type="radio" id="profile1" name="profile" value="../assets/profile-images/Ellipse -3.png"
@@ -126,6 +128,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
+                    <error-output class="date-error"></error-output>
                     <select id="month" name="Month">
                         <option value="Jan">January</option>
                         <option value="Feb">February</option>
@@ -141,12 +144,14 @@
                         <option value="Dec">December</option>
                     </select>
                     <select id="year" name="Year">
+                        <option value="2022">2022</option>
                         <option value="2021">2021</option>
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
                     </select>
+
                 </div>
             </div>
             <!-- UC6 Add notes and button-->
