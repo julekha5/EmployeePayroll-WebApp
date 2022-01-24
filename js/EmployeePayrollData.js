@@ -3,6 +3,7 @@ class EmployeePayrollData {
     get name() {
         return this._name;
     }
+    /** setter method for name validation */
     set name(name) {
         let nameRegex = RegExp('^[A-z]{1}[a-z]{3,}$');
         if (nameRegex.test(name))
@@ -57,7 +58,7 @@ class EmployeePayrollData {
     get startDate() {
         return this._startDate;
     }
-
+    /** setter method for date with validation no future date , should be within 30days of joining */
     set startDate(startDate) {
         let currentDate = new Date();
         if (startDate > currentDate) {
@@ -73,7 +74,7 @@ class EmployeePayrollData {
 
     //method
     toString() {
-        
+
         return "id : " + this._id + ", name : " + this._name + ", salary : " + this._salary + ", gender : " + this._gender +
             ", date : " + this.startDate + ", profilepic : " + this._profilePic + ", department : " + this._department + ", note : " + this._note;
 
