@@ -16,6 +16,8 @@ html body {
     justify-content: center;
     align-items: center;
     border: 0px solid green;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .logo-content {
@@ -52,7 +54,7 @@ html body {
 .main-content {
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh-80px);
+    min-height: calc(100vh - 80px);
     background-color: #f7f7f7;
     padding: 30px 0 10px;
     box-sizing: border-box;
@@ -77,15 +79,17 @@ html body {
 
 .emp-count {
     background-color: #82a70c;
-    color: #ffff;
-    border-radius: 42%;
-    font-size: 16px;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 20px;
     width: 26px;
     text-align: center;
     display: inline-block;
 }
 
 .add-button {
+    display: flex;
+    flex-direction: row;
     font: normal normal normal22px/29px Roboto;
     letter-spacing: 0px;
     color: #fff;
@@ -113,6 +117,8 @@ html body {
     min-width: 800px;
     border-collapse: separate;
     border-spacing: 0 15px;
+    margin-top: 3px;
+    border: 0px solid green;
 }
 
 td,
