@@ -23,7 +23,7 @@ const createInnerHtml = () => {
         <td>${empPayrollData._gender}</td>
         <td>${getDeptHtml(empPayrollData._department)}</td>
         <td>${empPayrollData._salary}</td>
-        <td>${empPayrollData._startDate}</td>
+        <td>${stringify(empPayrollData._startDate)}</td>
         <td>
             <img id ="${empPayrollData._id}" onclick="remove(this)" src="../assets/icons/delete-black-18dp.svg" alt="delete">
             <img id ="${empPayrollData._id}" onclick="update(this)" src="../assets/icons/create-black-18dp.svg" alt="edit">
@@ -57,11 +57,9 @@ const remove = (data) => {
 /** Update employee payroll details */
 
 const update = (data) => {
-
     let empPayrollData = empPayrollList.find(empData => empData._id == data.id);
     if (!empPayrollData)
         return;
     localStorage.setItem('edit-emp', JSON.stringify(empPayrollData));
     window.location.replace(siteProperties.addEmployee);
-
 }

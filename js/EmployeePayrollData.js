@@ -1,9 +1,9 @@
 class EmployeePayrollData {
     //getter and setter method
     get name() {
-        return this._name;
-    }
-    /** setter method for name validation */
+            return this._name;
+        }
+        /** setter method for name validation */
     set name(name) {
         let nameRegex = RegExp('^[A-z]{1}[a-z]{3,}$');
         if (nameRegex.test(name))
@@ -56,16 +56,16 @@ class EmployeePayrollData {
     }
 
     get startDate() {
-        return this._startDate;
-    }
-    /** setter method for date with validation no future date , should be within 30days of joining */
+            return this._startDate;
+        }
+        /** setter method for date with validation no future date , should be within 30days of joining */
     set startDate(startDate) {
         let currentDate = new Date();
         if (startDate > currentDate) {
             throw "Start date is a future date";
         }
 
-        var diff = Math.abs(currentDate.getTime - startDate.getTime());
+        var diff = Math.abs(currentDate.getTime() - startDate.getTime());
         if (diff / (1000 * 60 * 24) > 30) {
             throw "start date is beyond 30 days";
         }
@@ -81,4 +81,3 @@ class EmployeePayrollData {
     }
 
 }
-
